@@ -1,7 +1,7 @@
 <template>
     <div>
-        <button class="btn btn-primary" @click="addCounter">Increment</button>
-        <button class="btn btn-primary" @click="subCounter">Decrement</button>
+        <button class="btn btn-primary" @click="addCounter(100)">Increment</button>
+        <button class="btn btn-primary" @click="subCounter(50)">Decrement</button>
         <br>
         <p>Vuex 雙向綁定v-model</p>
         <input type="text" v-model="value">
@@ -20,7 +20,10 @@ export default {
         return this.$store.getters.value
       },
       set(value) {
-        // 調用actions方法 > 觸發mutation內的方法來更改值
+        // 直接調用mutations內的方法來改變值
+        // this.$store.commit('updateValue', value)
+
+        // 調用actions方法 > 觸發mutation內的方法來更改值(建議使用)
         this.$store.dispatch('updateValue', value)
       }
     }
