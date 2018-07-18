@@ -3,9 +3,9 @@
         <button class="btn btn-primary" @click="addCounter">Increment</button>
         <button class="btn btn-primary" @click="subCounter">Decrement</button>
         <br>
+        <p>Vuex 雙向綁定v-model</p>
         <input type="text" v-model="value">
-
-        <p>{{ value }}</p>
+        <span>{{ value }}</span>
     </div>
 </template>
 
@@ -14,9 +14,6 @@ import { mapMutations } from 'vuex'
 
 export default {
   computed: {
-    value() {
-      return this.$store.getters.value
-    },
     // 雙向綁定store的值，使用get、set
     value: {
       get() {
